@@ -4,13 +4,12 @@
   },
   "inbounds": [
     {
-      "listen": "0.0.0.0",
-      "port": 17306,
+      "port": 8080,
       "protocol": "vless",
       "settings": {
         "clients": [
           {
-            "id": "8442ff27-8e79-4f27-b4d2-c3e6447789ea",
+            "id": "your-uuid-here",
             "flow": "xtls-rprx-vision"
           }
         ],
@@ -23,32 +22,16 @@
           "show": false,
           "dest": "partners.playstation.net:443",
           "xver": 0,
-          "serverNames": [
-            "partners.playstation.net"
-          ],
-          "privateKey": "8GXPCvZ4ty3uEKxexznrZvCSo3NqYwzKY5dzbaQGWVM",
-          "minClientVer": "",
-          "maxClientVer": "",
-          "maxTimeDiff": 0,
-          "shortIds": [
-            "8236"
-          ]
+          "serverNames": ["partners.playstation.net"],
+          "privateKey": "your-private-key-here",
+          "shortIds": ["your-short-id-here"]
         }
       }
     }
   ],
   "outbounds": [
     {
-      "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "UseIP"
-      }
+      "protocol": "freedom"
     }
-  ],
-  "dns": {
-    "servers": [
-      "1.1.1.1",
-      "8.8.8.8"
-    ]
-  }
+  ]
 }
