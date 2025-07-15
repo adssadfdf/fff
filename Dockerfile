@@ -1,46 +1,35 @@
 FROM alpine:latest
 
-# Install necessary packages
-RUN apk add --no-cache \
-    curl \
-    unzip \
-    ca-certificates \
-    openssl \
-    jq
+# Install dependencies
+RUN apk add --no-cache curl unzip ca-certificates openssl jq bash
 
-# Download and install Xray
+# Download Xray
 RUN curl -Lo xray.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip && \
     unzip xray.zip && \
     chmod +x xray && \
     mv xray /usr/local/bin/xray && \
     rm -rf xray.zip geoip.dat geosite.dat
 
-# Create config directory
+# Download ngrok
+RUN curl -Lo ngrok.tgz https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.tgz && \
+    tar -xvzf ngrok.tgz && \
+    mv ngrok /usr/local/bin/ngrok && \
+    rm ngrok.tgz
+
+# Create folders
 RUN mkdir -p /etc/xray
 
-ARG PORT=17306
-ARG VLESS_UUID=8442ff27-8e79-4f27-b4d2-c3e6447789ea
-ARG REALITY_PRIVATE_KEY=8GXPCvZ4ty3uEKxexznrZvCSo3NqYwzKY5dzbaQGWVM
-ARG REALITY_SHORT_ID=8236
-
-ENV PORT=$PORT
-ENV VLESS_UUID=$VLESS_UUID
-ENV REALITY_PRIVATE_KEY=$REALITY_PRIVATE_KEY
-ENV REALITY_SHORT_ID=$REALITY_SHORT_ID
-
-# Copy configuration file
+# Add config files
 COPY config.json /etc/xray/config.json
-
-ADD start.sh /start.sh
-
+COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-# Expose port (Railway will override this)
-EXPOSE $PORT
+# Default port (internal only)
+ENV PORT=17306
+ENV VLESS_UUID=8442ff27-8e79-4f27-b4d2-c3e6447789ea
+ENV REALITY_PRIVATE_KEY=8GXPCvZ4ty3uEKxexznrZvCSo3NqYwzKY5dzbaQGWVM
+ENV REALITY_SHORT_ID=8236
+ENV NGROK_AUTHTOKEN=2zvS3oejdtPQ4HmEpyGGIhwhLbO_9FwbcfpBtqEU4VQHQqSS
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:${PORT}/health || exit 1
-
-# Start the service
+# Start
 CMD ["/start.sh"]
