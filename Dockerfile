@@ -11,10 +11,11 @@ RUN curl -Lo xray.zip https://github.com/XTLS/Xray-core/releases/latest/download
     rm -rf xray.zip geoip.dat geosite.dat
 
 # Download ngrok
-RUN curl -Lo /tmp/ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz && \
-    unzip /tmp/ngrok.zip -d /usr/local/bin && \
+RUN curl -Lo /tmp/ngrok.tgz https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz && \
+    tar -xzf /tmp/ngrok.tgz -C /usr/local/bin && \
     chmod +x /usr/local/bin/ngrok && \
-    rm -f /tmp/ngrok.zip
+    rm -f /tmp/ngrok.tgz
+    
 # Create folders
 RUN mkdir -p /etc/xray
 
