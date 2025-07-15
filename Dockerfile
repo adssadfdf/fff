@@ -11,13 +11,10 @@ RUN curl -Lo xray.zip https://github.com/XTLS/Xray-core/releases/latest/download
     rm -rf xray.zip geoip.dat geosite.dat
 
 # Download ngrok
-RUN curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
-  | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null \
-  && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" \
-  | sudo tee /etc/apt/sources.list.d/ngrok.list \
-  && sudo apt update \
-  && sudo apt install ngrok
-
+RUN curl -Lo /tmp/ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz && \
+    unzip /tmp/ngrok.zip -d /usr/local/bin && \
+    chmod +x /usr/local/bin/ngrok && \
+    rm -f /tmp/ngrok.zip
 # Create folders
 RUN mkdir -p /etc/xray
 
