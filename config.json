@@ -4,12 +4,12 @@
   },
   "inbounds": [
     {
-      "port": 8080,
+      "port": 17306,
       "protocol": "vless",
       "settings": {
         "clients": [
           {
-            "id": "your-uuid-here",
+            "id": "8442ff27-8e79-4f27-b4d2-c3e6447789ea",
             "flow": "xtls-rprx-vision"
           }
         ],
@@ -25,12 +25,12 @@
           "serverNames": [
             "partners.playstation.net"
           ],
-          "privateKey": "your-private-key-here",
+          "privateKey": "8GXPCvZ4ty3uEKxexznrZvCSo3NqYwzKY5dzbaQGWVM",
           "minClientVer": "",
           "maxClientVer": "",
           "maxTimeDiff": 0,
           "shortIds": [
-            "your-short-id-here"
+            "8236"
           ]
         }
       }
