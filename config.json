@@ -21,16 +21,33 @@
         "realitySettings": {
           "show": false,
           "dest": "partners.playstation.net:443",
-          "serverNames": ["partners.playstation.net"],
+          "xver": 0,
+          "serverNames": [
+            "partners.playstation.net"
+          ],
           "privateKey": "your-private-key-here",
-          "shortIds": ["your-short-id-here"]
+          "minClientVer": "",
+          "maxClientVer": "",
+          "maxTimeDiff": 0,
+          "shortIds": [
+            "your-short-id-here"
+          ]
         }
       }
     }
   ],
   "outbounds": [
     {
-      "protocol": "freedom"
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIP"
+      }
     }
-  ]
+  ],
+  "dns": {
+    "servers": [
+      "1.1.1.1",
+      "8.8.8.8"
+    ]
+  }
 }
