@@ -19,7 +19,10 @@ sed -i "s/your-short-id-here/$REALITY_SHORT_ID/g" /etc/xray/config.json
 # Start Xray
 exec /usr/local/bin/xray -config /etc/xray/config.json &
 
-echo "Starting Loophole tunnel on port $PORT..."
-/usr/local/bin/loophole http $PORT
+sleep 2
+
+# تشغيل Serveo tunnel
+echo "Creating Serveo tunnel..."
+ssh -o StrictHostKeyChecking=no -R 17306:localhost:$PORT serveo.net
 # Start Cloudflare tunnel
 # cloudflared tunnel --no-autoupdate --url http://localhost:$PORT --token eyJhIjoiNDhmZTUxYjA5MzQzMGNjNjljNjI3MjgxN2U3MTQxNDciLCJ0IjoiODNhNjcyMDctNzI4Zi00NTc3LWI5MTEtZDQwYTIwNTM1ZDMwIiwicyI6Ik56WmtNMk01WmpZdE5HUXlNeTAwWmpNMkxUa3hOek10TWpsa1lUZGpaRFppTmpZdyJ9
