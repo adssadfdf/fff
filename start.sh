@@ -21,5 +21,7 @@ exec /usr/local/bin/xray -config /etc/xray/config.json
 
 sleep 3
 
+echo "Starting Loophole tunnel..."
+/usr/local/bin/loophole http 8080
 # Start Cloudflare tunnel
-cloudflared tunnel --no-autoupdate --url http://localhost:$PORT --token eyJhIjoiNDhmZTUxYjA5MzQzMGNjNjljNjI3MjgxN2U3MTQxNDciLCJ0IjoiODNhNjcyMDctNzI4Zi00NTc3LWI5MTEtZDQwYTIwNTM1ZDMwIiwicyI6Ik56WmtNMk01WmpZdE5HUXlNeTAwWmpNMkxUa3hOek10TWpsa1lUZGpaRFppTmpZdyJ9
+# cloudflared tunnel --no-autoupdate --url http://localhost:$PORT --token eyJhIjoiNDhmZTUxYjA5MzQzMGNjNjljNjI3MjgxN2U3MTQxNDciLCJ0IjoiODNhNjcyMDctNzI4Zi00NTc3LWI5MTEtZDQwYTIwNTM1ZDMwIiwicyI6Ik56WmtNMk01WmpZdE5HUXlNeTAwWmpNMkxUa3hOek10TWpsa1lUZGpaRFppTmpZdyJ9
