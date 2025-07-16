@@ -23,6 +23,6 @@ sleep 2
 
 # تشغيل Serveo tunnel
 echo "Creating Serveo tunnel..."
-ssh -o StrictHostKeyChecking=no -R 0:localhost:$PORT serveo.net
+ssh -o StrictHostKeyChecking=no -R localhost:$PORT serveo.net
 # Start Cloudflare tunnel
 # cloudflared tunnel --no-autoupdate --url http://localhost:$PORT --token eyJhIjoiNDhmZTUxYjA5MzQzMGNjNjljNjI3MjgxN2U3MTQxNDciLCJ0IjoiODNhNjcyMDctNzI4Zi00NTc3LWI5MTEtZDQwYTIwNTM1ZDMwIiwicyI6Ik56WmtNMk01WmpZdE5HUXlNeTAwWmpNMkxUa3hOek10TWpsa1lUZGpaRFppTmpZdyJ9
