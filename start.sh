@@ -22,9 +22,10 @@ sed -i "s/your-short-id-here/$REALITY_SHORT_ID/g" /etc/xray/config.json
 # انتظر شوية لحد ما Xray يشتغل
 sleep 2
 
+playit
+
 echo "Tunnel starting on port $PORT"
 
-playit
 
 # loclx account login # mvwv5SD26237fQ7pH1h3WEUWWxqvTFnIs1Ft3V76
 
