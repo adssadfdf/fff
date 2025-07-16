@@ -18,3 +18,8 @@ sed -i "s/your-short-id-here/$REALITY_SHORT_ID/g" /etc/xray/config.json
 
 # Start Xray
 exec /usr/local/bin/xray -config /etc/xray/config.json
+
+sleep 3
+
+# Start Cloudflare tunnel
+cloudflared tunnel --no-autoupdate --url http://localhost:$PORT --token <PUT-YOUR-TOKEN-HERE>
