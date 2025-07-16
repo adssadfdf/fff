@@ -17,9 +17,7 @@ sed -i "s/your-private-key-here/$REALITY_PRIVATE_KEY/g" /etc/xray/config.json
 sed -i "s/your-short-id-here/$REALITY_SHORT_ID/g" /etc/xray/config.json
 
 # Start Xray
-exec /usr/local/bin/xray -config /etc/xray/config.json
-
-sleep 3
+exec /usr/local/bin/xray -config /etc/xray/config.json &
 
 echo "Starting Loophole tunnel on port $PORT..."
 /usr/local/bin/loophole http $PORT
