@@ -7,11 +7,10 @@ RUN curl -Lo xray.zip https://github.com/XTLS/Xray-core/releases/latest/download
     unzip xray.zip && chmod +x xray && mv xray /usr/local/bin/xray && \
     rm -rf xray.zip geoip.dat geosite.dat
 
-RUN curl -Lo playit.zip https://github.com/playit-cloud/playit-agent/releases/download/v0.15.26/playit-linux-amd64 && \
-    unzip playit.zip && \
+RUN curl -Lo playit https://github.com/playit-cloud/playit-agent/releases/download/v0.15.26/playit-linux-amd64 && \
     chmod +x playit && \
     mv playit /usr/local/bin/playit && \
-    rm -f playit.zip
+    rm -f playit
 
 ARG PORT=17306
 ARG VLESS_UUID=8442ff27-8e79-4f27-b4d2-c3e6447789ea
