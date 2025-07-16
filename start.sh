@@ -24,7 +24,7 @@ sleep 2
 
 echo "Tunnel starting on port $PORT"
 
-loclx account login mvwv5SD26237fQ7pH1h3WEUWWxqvTFnIs1Ft3V76
+loclx account login # mvwv5SD26237fQ7pH1h3WEUWWxqvTFnIs1Ft3V76
 
 # loclx tunnel tcp --port $PORT
-loclx tunnel tcp --to localhost:$PORT
+# loclx tunnel tcp --to localhost:$PORT
