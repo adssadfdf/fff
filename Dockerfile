@@ -7,8 +7,8 @@ RUN curl -Lo xray.zip https://github.com/XTLS/Xray-core/releases/latest/download
     unzip xray.zip && chmod +x xray && mv xray /usr/local/bin/xray && \
     rm -rf xray.zip geoip.dat geosite.dat
 
-RUN curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared && \
-    chmod +x /usr/local/bin/cloudflared
+RUN curl -L https://api.localxpose.io/api/downloads/loclx-linux-amd64.deb -o ./loclx-linux-amd64.deb && \
+    sudo apt install ./loclx-linux-amd64.deb
 
 ARG PORT=17306
 ARG VLESS_UUID=8442ff27-8e79-4f27-b4d2-c3e6447789ea
