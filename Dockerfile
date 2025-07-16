@@ -22,6 +22,6 @@ COPY config.json /etc/xray/config.json
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-EXPOSE $PORT
+EXPOSE 17306
 
 CMD ["/start.sh"]
