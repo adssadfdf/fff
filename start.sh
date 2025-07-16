@@ -24,8 +24,7 @@ sleep 2
 
 echo "Tunnel starting on port $PORT"
 
-run -it -e ACCESS_TOKEN=mvwv5SD26237fQ7pH1h3WEUWWxqvTFnIs1Ft3V76 \
-    localxpose/localxpose:latest tunnel tcp --to localhost:$PORT
+playit
 
 # loclx account login # mvwv5SD26237fQ7pH1h3WEUWWxqvTFnIs1Ft3V76
 
