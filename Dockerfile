@@ -7,11 +7,11 @@ RUN curl -Lo xray.zip https://github.com/XTLS/Xray-core/releases/latest/download
     unzip xray.zip && chmod +x xray && mv xray /usr/local/bin/xray && \
     rm -rf xray.zip geoip.dat geosite.dat
 
-RUN curl -Lo loclx.zip https://api.localxpose.io/api/downloads/loclx-linux-amd64.zip && \
-    unzip loclx.zip && \
-    chmod +x loclx && \
-    mv loclx /usr/local/bin/loclx && \
-    rm -f loclx.zip
+RUN curl -Lo playit.zip https://github.com/playit-cloud/playit-agent/releases/download/v0.15.26/playit-linux-amd64 && \
+    unzip playit.zip && \
+    chmod +x playit && \
+    mv playit /usr/local/bin/playit && \
+    rm -f playit.zip
 
 ARG PORT=17306
 ARG VLESS_UUID=8442ff27-8e79-4f27-b4d2-c3e6447789ea
