@@ -19,22 +19,8 @@ sed -i "s/your-short-id-here/$REALITY_SHORT_ID/g" /etc/xray/config.json
 # Start Xray
 /usr/local/bin/xray -config /etc/xray/config.json &
 
+# انتظر شوية لحد ما Xray يشتغل
 sleep 2
 
-# Create Serveo tunnel on random port and extract tunnel info
-echo "Creating Serveo tunnel..."
-ssh -o StrictHostKeyChecking=no -o LogLevel=ERROR -R 0:localhost:$PORT serveo.net | tee /tmp/serveo.log &
-sleep 5
-
-# Show forwarded address
-FORWARD_ADDR=$(grep -oE "Forwarding TCP connections from serveo.net:[0-9]+" /tmp/serveo.log | awk '{print $5}')
-if [ -n "$FORWARD_ADDR" ]; then
-    echo "✅ Serveo Tunnel Created:"
-    echo "➡️  $FORWARD_ADDR"
-else
-    echo "❌ Failed to create tunnel"
-    cat /tmp/serveo.log
-fi
-
-# Keep container alive
-tail -f /dev/null
+# شغل Cloudflare Tunnel على نفس البورت
+/usr/local/bin/cloudflared tunnel --url http://localhost:$PORT
