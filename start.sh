@@ -22,5 +22,8 @@ sed -i "s/your-short-id-here/$REALITY_SHORT_ID/g" /etc/xray/config.json
 # انتظر شوية لحد ما Xray يشتغل
 sleep 2
 
-# شغل Cloudflare Tunnel على نفس البورت
-/usr/local/bin/cloudflared tunnel --url http://localhost:$PORT
+echo "Tunnel starting on port $PORT"
+
+loclx account login mvwv5SD26237fQ7pH1h3WEUWWxqvTFnIs1Ft3V76
+
+loclx tunnel tcp --port $PORT
